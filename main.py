@@ -1,9 +1,25 @@
 import asyncio
 from dotenv import load_dotenv
 import os
+from mcp import ClientSession , StdioServerParameters
+from mcp.client.stdio import stdio_client
+from langchain_google_genai import GoogleGenerativeAI
+from langchain_mcp_adapters.tools import load_mcp_tools
+from langgraph.prebuilt import create_react_agent
+
+
 
 load_dotenv()
 print(os.getenv("GEMINI_API_KEY"))
+
+llm = GoogleGenerativeAI(
+    
+)
+
+stdio_server_params = StdioServerParameters(
+    command="python",
+    args=["/Users/anuj846k/Developer/mcp/mcp-crash-course/servers/math_server.py"],
+)
 
 async def main():
     print("Hello from mcp-crash-course!")
